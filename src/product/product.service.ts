@@ -29,7 +29,8 @@ export class ProductService {
       .exec();
   }
 
-  async findOne(id: string): Promise<Product | null> {
+  async findOne(id: object): Promise<Product | null> {
+    console.log(id);
     const data = this.productModel.findById(id).exec();
     return data;
   }

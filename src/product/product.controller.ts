@@ -23,9 +23,10 @@ export class ProductController {
     return this.productService.create(createProductDto);
   }
 
-  @Get('get/:id')
-  findOne(@Param('id') id: string) {
-    return this.productService.findOne(id);
+  @Get('get')
+  findOne(@Query() id: object) {
+    const productID = { ...id };
+    return this.productService.findOne(productID);
   }
 
   @Get('search')
